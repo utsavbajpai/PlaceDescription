@@ -1,7 +1,14 @@
 <html>
- 
+ <head>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet"> 
+        <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='index.css') }}">
+        <!-- <script src="{{ url_for('static',filename='index.js') }}"></script> -->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+ </head>
     <body>
-    <h1> Click to Detect Location! </h1>
+<!--     <h1> Click to Detect Location! </h1>
      <form action="{{ url_for('placedetails')}}" method="get" name="locationform">
         <p>
             <input type="submit" value="Detect My Location">
@@ -17,7 +24,23 @@
 
 
 
+ -->
 
+    <div class='header'>
+        Air Quality Index in your area
+    </div>
+    <div class='aqi'>
+        {{airqualityindex}}
+    </div>
+    <div class='rr'>
+        {{rr}}
+    </div>
+    <div class='enter'>
+        Enter a zipcode to find the Air Quality
+        <form action="{{ url_for('placedetails')}}" method="get" name="zipcodeform">
+        <input type="number" name="zipcode" placeholder="zipcode">
+     </form>
+    </div>
 
     </body>
 </html>
