@@ -41,6 +41,13 @@ def placedetails():
     zipcodelatitude= zipcodejson['results'][0]['geometry']['location']['lat']
     zipcodelongitude = zipcodejson['results'][0]['geometry']['location']['lng']
 
+    add_components = zipcodejson['results'][0]['address_components']
+    state = add_components[len(add_components)-2]['long_name']
+    city = add_components[len(add_components)-4]['long_name']
+
+
+
+
     airquality_url = 'https://api.breezometer.com/baqi/?lat=' + str(zipcodelatitude) + '&lon=' + str(zipcodelongitude) +'&key=74a3fdfe934f4e5c8b0cc50edfb225bd'
 
     airquality_request = requests.get(airquality_url)
@@ -51,4 +58,4 @@ def placedetails():
     k = (airquality_json['breezometer_description'])
     aqi = (airquality_json['breezometer_aqi'])
     rr = (airquality_json['random_recommendations']['outside'])
-    return render_template('index.html', airqualityindex=aqi, rr=rr)
+    return render_template('index.html', airqualityindex=aqi, rr=rr,state=state,city=city)
