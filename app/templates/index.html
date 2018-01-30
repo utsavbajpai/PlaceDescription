@@ -1,0 +1,26 @@
+<html>
+ 
+    <body>
+    <h1> Click to Detect Location! </h1>
+     <form action="{{ url_for('placedetails')}}" method="get" name="locationform">
+        <p>
+            <input type="submit" value="Detect My Location">
+        </p>
+     </form>
+
+
+     <form action="{{ url_for('placedetails')}}" method="get" name="zipcodeform">
+        <p>
+            <input type="number" name="zipcode">
+        </p>
+     </form>
+
+
+
+
+
+    </body>
+</html>
+
+
+
